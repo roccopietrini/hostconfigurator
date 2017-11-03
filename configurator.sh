@@ -6,9 +6,9 @@ fi
 
 NIC=$(ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2a;getline}')
 
-ID=$(cat ../config.json | jq '.field1.id | tonumber')
+ID=$(cat config.json | jq '.field1.id | tonumber')
 
-IDs=$(cat ../config.json | jq '.field2.id | tonumber')
+IDs=$(cat config.json | jq '.field2.id | tonumber')
 
 cat << EOF > /etc/network/interfaces
 auto lo
